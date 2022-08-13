@@ -110,9 +110,17 @@ function HomeScreen({}) {
   };
 
   const handleEndEditingUsername = async () => {
-    const data = await getGitPublicRepositories(username);
-    await setGitReposData(data);
-    await setSearchResult(data);
+    if (username !== "") {
+      const data = await getGitPublicRepositories(username);
+      if (data[0]?.error) {
+        await setGitReposData([]);
+        await setSearchResult([]);
+        setErrorMessage(`Error: ${data[0]?.error?.message}`);
+      } else {
+        await setGitReposData(data);
+        await setSearchResult(data);
+      }
+    }
   };
 
   const handleChangeSearchKey = (text) => {
