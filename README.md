@@ -24,7 +24,7 @@ Run the following command to install the dependencies.
 $ npm install
 ```
 
-### 2. Starting Client-Side Application
+### 2. Starting Application
 
 Run the folloing command to start the app.
 
@@ -32,8 +32,11 @@ Run the folloing command to start the app.
 $ npx expo start
 ```
 
+Scan QR code using Expo Go app (Android) or Camera app (iOS)
+
 ### 5. Techlonologies Used
 
 - JavaScript (ES6)
 - React Native
 - expo
+- Expo Go (iOS or Android)
