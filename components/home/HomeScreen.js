@@ -93,6 +93,10 @@ function HomeScreen({}) {
   const [searchResut, setSearchResult] = useState([]);
 
   useEffect(() => {
+    if (username === "") {
+      setGitReposData([]);
+      setSearchResult([]);
+    }
     if (username === "" && searchKey) {
       setErrorMessage("Username cannot be empty.");
     }
@@ -103,7 +107,7 @@ function HomeScreen({}) {
       setSearchResult(gitReposData);
       setErrorMessage("");
     }
-  }, [searchKey, username, gitReposData]);
+  }, [searchKey, username]);
 
   const handleChangeUsername = (text) => {
     setUsername(text);
